@@ -12,6 +12,6 @@
     "lib": ["es2017"],
     "types": ["node","jest", "reflect-metadata"]
   },
-  "include": ["**/*"],
-  "exclude": ["node_modules", "old-src"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

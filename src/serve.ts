@@ -15,7 +15,6 @@ import { Logger } from "log4js";
   // ignores if dupe, otherwise get price data and insert to db
   // use while loop because setInterval chokes on @inject
   while (true) {
-    await delay(15 * 1000);
     try {
       await main.handleLatest();
     } catch (e) {
@@ -23,5 +22,6 @@ import { Logger } from "log4js";
       log.fatal(e);
       break;
     }
+    await delay(15 * 1000);
   }
 })();

@@ -27,19 +27,7 @@ container.bind<IEnviroment>(TYPES.Enviroment).to(Enviroment);
 container
   .bind<IDatabaseConnection>(TYPES.DatabaseConnection)
   .toDynamicValue(async (context: interfaces.Context) => {
-    const enviroment = context.container.get<IEnviroment>(TYPES.Enviroment);
-
-    const databaseConfiguration: PostgresConnectionOptions = {
-      host: enviroment.DB_HST,
-      port: 5432,
-      username: enviroment.DB_USR,
-      password: enviroment.DB_PW,
-      database: enviroment.DB_NM,
-      entities: [BlockEntity],
-      type: "postgres",
-    };
-
-    return await createConnection(databaseConfiguration);
+    return await createConnection("serve");
   })
   .inSingletonScope();
 
